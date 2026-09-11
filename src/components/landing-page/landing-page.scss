@@ -1,1 +1,113 @@
+.landing-page {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, rgba(0, 255, 200, 0.15), transparent 40%),
+        linear-gradient(135deg, #050505, #111827);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    color: white;
+    font-family: Arial, sans-serif;
+}
 
+.landing-content {
+    text-align: center;
+    z-index: 2;
+    padding: 20px;
+}
+
+.landing-content h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 0 0 25px rgba(0, 255, 200, 0.5);
+}
+
+.landing-content p {
+    font-size: 22px;
+    opacity: 0.9;
+    margin-bottom: 35px;
+}
+
+.landing-content button {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.landing-content button:hover {
+    transform: scale(1.05);
+}
+
+.ai-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(0, 255, 200, 0.2);
+    filter: blur(100px);
+    animation: glow 5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.4);
+    }
+}
+
+.chart-animation {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    opacity: 0.4;
+}
+
+.candle {
+    width: 18px;
+    background: #00ff99;
+    animation: candleMove 2s infinite alternate;
+}
+
+.candle-1 {
+    height: 80px;
+}
+
+.candle-2 {
+    height: 140px;
+}
+
+.candle-3 {
+    height: 100px;
+}
+
+.candle-4 {
+    height: 180px;
+}
+
+.candle-5 {
+    height: 120px;
+}
+
+@keyframes candleMove {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-20px);
+    }
+}
