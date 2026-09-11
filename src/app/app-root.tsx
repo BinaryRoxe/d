@@ -9,6 +9,7 @@ import { localize } from '@deriv-com/translations';
 import './app-root.scss';
 
 const AppContent = lazy(() => import('./app-content'));
+const LandingPage = lazy(() => import('@/components/landing-page'));
 
 const AppRootLoader = () => {
     return <ChunkLoader message={localize('Loading...')} />;
@@ -56,7 +57,7 @@ const AppRoot = () => {
                     api_base_initialized.current = false;
                 } finally {
                     setIsApiInitialized(true);
-                    clearTimeout(timeoutId); // Clear timeout if API init completes
+                    clearTimeout(timeoutId);
                 }
             }
         };
@@ -71,7 +72,9 @@ const AppRoot = () => {
         <Suspense fallback={<AppRootLoader />}>
             <ErrorBoundary root_store={store}>
                 <ErrorComponentWrapper />
-                <AppContent />
+
+                {store.client.is_logged_in ? <AppContent /> : <LandingPage />}
+                
             </ErrorBoundary>
         </Suspense>
     );
